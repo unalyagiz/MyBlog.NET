@@ -1,0 +1,20 @@
+﻿
+@model MyBlog.Models.Comment
+
+<div class="media mb-4">
+    <div class="media-body" id="_@Model.Id">
+
+        <div class=" row justify-content-between">
+            <div class="col-4">
+                <h5 class="mt-0">@(Model.User.FirstName+" "+Model.User.Surname)</h5>
+            </div>
+            <div class="col-4">
+                <h6>(@Model.PublishDate)</h6>
+            </div>
+        </div>
+        @Model.description
+
+    </div>
+
+</div>
+<hr />

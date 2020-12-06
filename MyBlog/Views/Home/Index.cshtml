@@ -1,0 +1,36 @@
+﻿@model MyBlog.Models.AdminPostViewModel.AdminPostViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+    p {
+        line-height: 1.5em;
+        height: 3em;
+        overflow: hidden;
+    }
+
+</style>
+
+<br />
+@foreach (var post in Model.Posts)
+{
+    
+    <div class="card mb-4">
+        <img class="card-img-top" src="@Url.Content("~/images/"+post.ImgUrl)" width="750" height="300" alt="Card image cap">
+        <div class="card-body">
+            <h2 class="card-title">@post.Title</h2>
+            @Html.Raw(post.Description)
+            @Html.ActionLink("Read more","DetailedPost","Home",new { postid=post.Id  } ,new { @class="btn btn-primary"})
+        </div>
+        <div class="card-footer text-muted">
+            Posted @post.PublishDate by <b>@post.Admin.Username</b>
+            
+        </div>
+    </div>
+
+
+}
+
+
+

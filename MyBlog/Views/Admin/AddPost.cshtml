@@ -1,0 +1,65 @@
+﻿@model MyBlog.Models.Post
+@{
+    ViewBag.Title = "AddPost";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div>
+        <br />
+        <h2>Create Post</h2>
+        <br />
+        @using (Html.BeginForm("AddPost","Admin",FormMethod.Post,new { enctype = "multipart/form-data" }))
+        {
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Upload</span>
+                </div>
+                <div class="custom-file">
+                    <input type="file" name="uploadFile" class="custom-file-input" id="inputGroupFile01">
+                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                    @Html.ValidationMessageFor(model => model.ImgUrl, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="txt1">Title</span>
+                </div>
+                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+            @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+
+
+           <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="txt1">Post text</span>
+                </div>
+                    @Html.TextAreaFor(model => model.Description, new { @id = "FullDescription", @class = "form-control", @rows = "200" })
+                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                    <script>
+                        CKEDITOR.replace("FullDescription");
+                    </script>
+                </div>
+            
+
+            <div class="input-group">
+                <input type="submit" value="Upload Post" class="btn btn-success" />
+            </div>
+            <br />
+            <div class="input-group">
+                @if (ViewBag.Result != null)
+                {
+                    <div class="alert alert-@ViewBag.Status" role="alert">
+                        @ViewBag.Result
+                    </div>
+                }
+
+            </div>
+
+        }
+
+    </div>
+    </div>
+    

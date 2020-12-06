@@ -1,0 +1,57 @@
+﻿@model MyBlog.Models.AdminPostViewModel.AdminPostViewModel
+@{
+
+    <style>
+        p {
+            line-height: 1.5em;
+            height: 3em;
+            overflow: hidden;
+        }
+
+        h2 {
+            padding-top: 30px;
+        }
+    </style>
+    if (Model != null)
+    {
+         if (Model.Posts.Count == 0)
+        {
+
+
+        <h2>
+            No post with the searched keyword!
+        </h2>
+        <br />
+        <h6>
+            Search for another keyword or go to home page to see the all posts...
+        </h6>
+
+
+         }
+        foreach (var post in Model.Posts)
+        {
+            <br />
+            <div class="card mb-4">
+                <img class="card-img-top" src="@Url.Content("~/images/"+post.ImgUrl)" alt="Card image cap">
+                <div class="card-body">
+                    <h2 class="card-title">@post.Title</h2>
+                    @Html.Raw(post.Description)
+                    @Html.ActionLink("Read more", "DetailedPost", "Home", new { postid = post.Id }, new { @class = "btn btn-primary" })
+                </div>
+                <div class="card-footer text-muted">
+                    Posted @post.PublishDate by <b>@post.Admin.Username</b>
+
+                </div>
+            </div>
+
+
+        }
+
+    }
+    
+
+
+
+
+
+}
