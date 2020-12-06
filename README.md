@@ -8,3 +8,6 @@ This project has been developed in 3 days for an interview task. It's been appro
 - People can sign-in to make a comment otherwise just seeing posts.
 - Different login mechanism to differentiate user and admin.
 
+
+<img src="https://i.imgur.com/P6wrrT1.mp4"/>
+
