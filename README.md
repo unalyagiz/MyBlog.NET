@@ -12,6 +12,7 @@ This project has been developed in 3 days for an interview task. It's been appro
 <br/>
 
 #### So, for the first task, i created an admin login page to give admin to capability of adding posts. I did not display the login link on a UI unit. So everybody can not messed with it. Even if they can access to admin login page, they are not authorized to making operations.
+<hr/>
 
 
 <img src="https://github.com/unalyagiz/MyBlog.NET/blob/master/gifs/admin_add_post.gif"/>
